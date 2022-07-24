@@ -1,9 +1,13 @@
+'''
+this code is for testing the XML files with using opencv.
+'''
+
 import numpy as np
 import cv2
 
 # the train works better for the backs
-back_cascade = cv2.CascadeClassifier('/Users/alivarastehranjbar/Nextcloud/HaarClassifier/xml_files/data_0/cascade.xml')
-face_cascade = cv2.CascadeClassifier('/Users/alivarastehranjbar/Nextcloud/HaarClassifier/xml_files/data_1/cascade.xml')
+back_cascade = cv2.CascadeClassifier('~/HaarClassifier/xml_files/data_0/cascade.xml')
+face_cascade = cv2.CascadeClassifier('~/HaarClassifier/xml_files/data_1/cascade.xml')
 
 # #this is the cascade we just made. Call what you want
 # watch_cascade = cv2.CascadeClassifier('watchcascade10stage.xml')

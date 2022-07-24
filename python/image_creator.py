@@ -7,16 +7,7 @@ def rename_file(path):
         os.rename(path + filename, path + 'image' + "_" + str(i) + ".jpg")
 
 def store_raw_images(path,dim):
-#     neg_images_link = '//image-net.org/api/text/imagenet.synset.geturls?wnid=n00523513'
-#     neg_image_urls = urllib.request.urlopen(neg_images_link).read().decode()
     pic_num = 1
-    #path = '/Users/alivarastehranjbar/Nextcloud/HaarClassifier/images_1/'
-#     if not os.path.exists('neg'):
-#         os.makedirs('neg')
-#     import cv2
-#     import glob
-
-#     images = [cv2.imread(file) for file in glob.glob('path/to/files/*.jpg')]
 
     for i, filename in enumerate(os.listdir(path)):
         try:
@@ -35,7 +26,7 @@ def store_raw_images(path,dim):
             # resized_image = cv2.resize(img)
             cv2.imwrite(path + 'image' + "_" + str(i) + ".jpg",resized_image)
             pic_num += 1
-            
+
             if img_type == 'neg':
                 line = path + 'image' + "_" + str(i) + ".jpg"+'\n'
                 with open('/opencv_workspace/haarclass/bg.txt','a') as f:
@@ -53,12 +44,12 @@ file_type = '/opencv_workspace/haarclass/images/neg'
 img_type = str(input('Please specify the image kind (pos or neg): '))
 path = str(input('\nPlease insert the path: '))
 
-# rename images
+''' Function For rename the images '''
 rename_file(path)
 
 print("\nNow please insert the x and y for resize.")
 x = int(input("x size: "))
 y = int(input("y size: "))
+
+''' Function For read the images with opencv '''
 store_raw_images(path,(x,y))
-
-

@@ -1,6 +1,6 @@
 '''
-this code does not run we are still working on it
-"its just a copy pase of some source codes with some changes
+this code is for generating images by using ImageDataGenerator from keras,
+so we wont use it, because for image generation we will use opencv_createsamples
 '''
 
 
@@ -157,7 +157,7 @@ def create_pos_n_neg():
                 line = file_type+'/'+img+'\n'
                 with open('bg.txt','a') as f:
                     f.write(line)
-#----------------------------------------------------------------------------------s            
+#----------------------------------------------------------------------------------s
 if __name__ == "__main__":
     '''Function for generate the images'''
     main_path = '/opencv_workspace/haarclass/images_1/pos'
@@ -168,11 +168,11 @@ if __name__ == "__main__":
     rename_file(save_path)
 
     '''Function for POS'''
-    path = 
+    path =
     store_raw_images(path)
 
     '''Function for NEG'''
-    path = 
+    path =
     store_raw_images(path)
 
     '''Function to create neg and pos'''
