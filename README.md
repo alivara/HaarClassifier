@@ -8,7 +8,6 @@
   <li><a href=#tutorial>Tutorial</a>
     <ul>
       <li><a href=#xmlfiles>XML Files</a></li>
-      <li><a href=#images>Images</a></li>
       <li><a href=#python>Python</a></li>
       <li><a href=#environment>Environment</a></li>
     </ul>
@@ -71,9 +70,6 @@
 <p> .....</p>
 <p>You can also.</p>
 <p>6 - Based on this <a href='https://www'>reference</a>, .</p>
-
-<h3>Images</h3>
-<p>These images are for the first sample test and not valid.</p>
 
 <h3>Python</h3>
 <p>15 - You should .</p>
