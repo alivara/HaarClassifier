@@ -7,6 +7,8 @@
   <li><a href=#model>Model</a></li>
   <li><a href=#tutorial>Tutorial</a>
     <ul>
+      <li><a href=#opencv_createsamples>opencv_createsamples</a></li>
+      <li><a href=#opencv_traincascade>opencv_traincascade</a></li>
       <li><a href=#xmlfiles>XML Files</a></li>
       <li><a href=#python>Python</a></li>
       <li><a href=#environment>Environment</a></li>
@@ -65,6 +67,18 @@
 <figure>
 <img src="https://github.com/" alt="tutorial data">
 </figure><br>
+
+<h3>opencv_createsamples</h3>
+<p>these commands are for image_0</p>
+<p>use this command for create the samples.</p>
+<pre>opencv_createsamples -img /opencv_workspace/haarclass/images/pos/image_0.jpg -bg bg.txt -info /opencv_workspace/haarclass/image_0/info/info.lst -pngoutput /opencv_workspace/haarclass/image_0/info -maxxangle 0.5 -maxyangle 0.5 -maxzangle 0.5 -num 3000</pre>
+<p>use this command for vec file.</p>
+<pre>opencv_createsamples -info /opencv_workspace/haarclass/image_0/info/info.lst -num 3000 -w 20 -h 20 -vec /opencv_workspace/haarclass/image_0/positives.vec</pre>
+
+<h3>opencv_traincascade</h3>
+<p>this commands are for image_0</p>
+<p>use this command for train.</p>
+<pre>opencv_traincascade -data /opencv_workspace/haarclass/image_0/data -vec /opencv_workspace/haarclass/image_0/positives.vec -bg bg.txt -numPos 2600 -numNeg 1300 -numStages 10 -w 20 -h 20</pre>
 
 <h3>XML Files</h3>
 <p> .....</p>
