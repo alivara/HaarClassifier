@@ -1,57 +1,88 @@
-**HaarClassifier**
+<h1>HaarClassifier</h1>
+<h2>Table of Contents</h2>
+<ul>
+  <li><a href=#porpuse>Porpuse</a></li>
+  <li><a href=#introduction>Introduction</a></li>
+  <li><a href=#data>Data</a></li>
+  <li><a href=#model>Model</a></li>
+  <li><a href=#tutorial>Tutorial</a>
+    <ul>
+      <li><a href=#xmlfiles>XML Files</a></li>
+      <li><a href=#python>Python</a></li>
+      <li><a href=#environment>Environment</a></li>
+    </ul>
+  </li>
+  <li><a href=#>Futute Studies</a>
+  <li><a href=#>How to run the software</a>
 
-Table of Contents
+</ul>
+<h2>Porpuse</h2>
+<p>This software is designed for this purpose to be a tool to use haar cascade based on opencv to detect images with minimum inputes.</p>
 
-* Purpose
+<h2>Introduction</h2>
+<p>According to .</p>
+<p>Therefore, analyzing and comparing .</p>
+<p>HaarClassifier software which is a teamwork project for <a href='https://dibris.unige.it/en'>'Dipartimento di Informatica, Bioingegneria, Robotica e Ingegneria dei Sistemi'</a> course from the prestigious master program of <a href='http://www.itim.unige.it/cs/strategos/'>'Engineering Technology for Strategy and Security - Strategos'</a> at the <a href='https://unige.it/en'>University of Genova</a> is designed to model this scenario.</p>
 
+<h2>Data</h2>
+<p>These images are .... .</p>
+<p>These images are .... .</p>
+<h3>Input Images</h3>
+<ul>
+  <li>Neg_images</li>
+  <li>Pos_images</li>
+</ul>
 
-* Introduction
-* Data
-* Model
-* Tutorial
-* XML Files
-* Python
-* Environment
-* Future Studies
-* How to run the software
+<h2>Model</h2>
+<p>This model currently evaluating, analyzing, and comparing .</p>
+<p>This model calculates <b>deterministic</b> and <b> (probabilistic)</b> AAAA.</p>
+<h3>Input Deterministic Parameters</h3>
+<ul>
+  <li>Dis</li>
+  <li>Ave</li>
+  <li>Ves</li>
+  <li>Ves</li>
+</ul>
 
-**Purpose**
+<p>All  outputs.</p>
+<p>The  pictures.</p>
+<figure>
+<p>In this picture you can see .</p>
+<img src="https://github.com" alt="TT">
+</figure><br>
+<figure>
+<p>And in this one you see how .</p>
+<img src="https://github.com/" alt="CC">
+</figure>
 
-This software is designed for this purpose to be a tool to use haar cascade based on OpenCV to detect images with minimum inputs.
+<h2>Tutorial</h2>
+<h3>Data</h3>
+<p>1 - At the first you should .</p>
+<p>2 - Define one </p>
+<p>3 - In this step, from <a href='https://www.'>..... website</a> and compared  <a href='https://www'>.... website</a>. You can also change .</p>
+<p>4 - The software recommends you .</p>
+<p>Finally, .</p>
+<figure>
+<img src="https://github.com/" alt="tutorial data">
+</figure><br>
 
-**Introduction**
+<h3>XML Files</h3>
+<p> .....</p>
+<p>You can also.</p>
+<p>6 - Based on this <a href='https://www'>reference</a>, .</p>
 
-According to
+<h3>Python</h3>
+<p>15 - You should .</p>
+<p>In the .</p>
+<ul>
+  <li>code_1.py</li>
+  <li>image_creator.py</li>
+  <li>no_code.py</li>
+  <li>show_time</li>
+</ul>
 
-Therefore, analyzing and comparing.
-
-HaarClassifier software which is a teamwork project for ['Dipartimento di Informatica, Bioingegneria, Robotica e Ingegneria dei Sistemi](https://dibris.unige.it/en)' course from the prestigious master program of ['Engineering Technology for Strategy and Security - Strategos'](http://www.itim.unige.it/cs/strategos) at the [University of Genova](https://unige.it/en) is designed to model this scenario.
-
-**Data**
-
-These images are... 
-
-These images are .....
-
-Input Images:
-
-* Neg_images
-* Pos_images
-
-**Model**
-
-This model currently evaluating, analyzed and compared. This model calculates
-
-All outputs.
-
-**Tutorial**
-
-At the first, you should . In this step, The software recommends you.
-
-1. XML Files
-2. Python
-   1. code_1.py
-   2. image_creator.py
-   3. no_code.py
-   4. show_time
-3. Environment
+<h3>Environment</h3>
+<p>In this tab, <a href='https://www.'>this article</a>.</p>
+<figure>
+<img src="https://github.com/" alt="tutorial Environment">
+</figure><br>
