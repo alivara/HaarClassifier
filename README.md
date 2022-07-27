@@ -17,7 +17,8 @@
 
 </ul>
 <h2>Porpuse</h2>
-<p>This software is designed for this purpose to be a tool to use haar cascade based on opencv to detect images with minimum inputes.</p>
+<p>The software is designed in purpose of working as a tool for image detection, using Haar-cascade detection in Opencv by considering minimum training inputs.</p>
+
 
 <h2>Introduction</h2>
 <p>According to .</p>
