@@ -17,7 +17,7 @@
 
 </ul>
 <h2>Porpuse</h2>
-<p>The software is designed in purpose of working as a tool for image detection, using Haar-cascade detection in Opencv by considering minimum training inputs.</p>
+<p>The software is designed in purpose of working as a tool for image detection, using Haar-cascade detection in Opencv by considering minimum training inputs.</p> (Isn't it for coordinate detection?)
 
 
 <h2>Introduction</h2>
