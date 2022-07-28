@@ -1,7 +1,7 @@
 <h1>HaarClassifier</h1>
 <h2>Table of Contents</h2>
 <ul>
-  <li><a href=#porpuse>Porpuse</a></li>
+  <li><a href=#purpose>Purpose</a></li>
   <li><a href=#introduction>Introduction</a></li>
   <li><a href=#data>Data</a></li>
   <li><a href=#model>Model</a></li>
@@ -16,7 +16,7 @@
   <li><a href=#>How to run the software</a>
 
 </ul>
-<h2>Porpuse</h2>
+<h2>Purpose</h2>
 <p>The software is designed in purpose of working as a tool for image detection, using Haar-cascade detection in OpenCV by considering minimum training inputs.</p> (Isn't it for coordinate detection?)
 
 
