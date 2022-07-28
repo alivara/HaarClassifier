@@ -17,11 +17,11 @@
 
 </ul>
 <h2>Porpuse</h2>
-<p>The software is designed in purpose of working as a tool for image detection, using Haar-cascade detection in Opencv by considering minimum training inputs.</p> (Isn't it for coordinate detection?)
+<p>The software is designed in purpose of working as a tool for image detection, using Haar-cascade detection in OpenCV by considering minimum training inputs.</p> (Isn't it for coordinate detection?)
 
 
 <h2>Introduction</h2>
-<p>According to .</p>
+<p>According to the purpose of the project and by considering the features of the chosen approach, we initially have utilized a prprocessing technique, which is using for creating and splitting the input samples into two group, positve and negative images, using OpenCV-create sample function. At the further steps, we desired to reach to a (.XML) format file, which is considered to be the file.   .</p>
 <p>Therefore, analyzing and comparing .</p>
 <p>HaarClassifier software which is a teamwork project for <a href='https://dibris.unige.it/en'>'Dipartimento di Informatica, Bioingegneria, Robotica e Ingegneria dei Sistemi'</a> course from the prestigious master program of <a href='http://www.itim.unige.it/cs/strategos/'>'Engineering Technology for Strategy and Security - Strategos'</a> at the <a href='https://unige.it/en'>University of Genova</a> is designed to model this scenario.</p>
 
