@@ -26,6 +26,7 @@ def installedversions(alpha = 0):
 ######################################################################
 ### File: main_code.py
 ### Use python3 to run this program
+### copy positive files to "/opencv_workspace/haarclass/images/pos/"
 
 import os
 import cv2
@@ -56,8 +57,8 @@ class opencv_python():
         This Function will rename the files
         '''
         os.getcwd()
-        for i, filename in enumerate(os.listdir(path)):
-            os.rename(path + filename, path + 'image' + "_" + str(i) + ".jpg")
+        for m, filename in enumerate(os.listdir(path)):
+            os.rename(path + filename, path + 'image' + "_" + str(m) + ".jpg")
 
     def store_raw_images(self,path,dim):
         '''
@@ -65,13 +66,13 @@ class opencv_python():
         '''
         pic_num = 1
 
-        for i, filename in enumerate(os.listdir(path)):
+        for j, filename in enumerate(os.listdir(path)):
             try:
-                print(i)
+                print(j)
 
                 # try to read image with opencv
                 # img = cv2.imread("neg/"+str(pic_num)+".jpg",cv2.IMREAD_GRAYSCALE)
-                img = cv2.imread(path + 'image' + "_" + str(i) + ".jpg",cv2.IMREAD_GRAYSCALE)
+                img = cv2.imread(path + 'image' + "_" + str(j) + ".jpg",cv2.IMREAD_GRAYSCALE)
                 # print(img)
                 # scale_percent = 60 # percent of original size
                 # width = int(img.shape[1] * scale_percent / 100)
@@ -80,11 +81,11 @@ class opencv_python():
                 # should be larger than samples / pos pic (so we can place our image on it)
                 resized_image = cv2.resize(img, dim,interpolation = cv2.INTER_AREA)
                 # resized_image = cv2.resize(img)
-                cv2.imwrite(path + 'image' + "_" + str(i) + ".jpg",resized_image)
+                cv2.imwrite(path + 'image' + "_" + str(j) + ".jpg",resized_image)
                 pic_num += 1
 
-                if img_type == 'neg':
-                    line = path + 'image' + "_" + str(i) + ".jpg"+'\n'
+                if path == "/opencv_workspace/haarclass/images/neg/":
+                    line = path + 'image' + "_" + str(j) + ".jpg"+'\n'
                     with open('/opencv_workspace/haarclass/bg.txt','a') as f:
                         f.write(line)
 
@@ -92,75 +93,81 @@ class opencv_python():
                 print(str(e))
 
     # need to be edited
-    def call_opencv(self,conf_mode,self.conf_opencv,nohup_mode):
+    def call_opencv(self,pos_image_path,i,conf_mode,conf_opencv,nohup_mode = "False"):
         '''
         This Function will call opencv_createsamples and opencv_traincascade
         '''
         print(subprocess.run(["opencv_createsamples"]))
-        print("default config is:","\n opencv_createsamples -img /opencv_workspace/haarclass/images/pos/image_0.jpg\
-         -bg bg.txt -info /opencv_workspace/haarclass/image_0/info/info.lst -pngoutput /opencv_workspace/haarclass/image_0/info\
-          -maxxangle 0.5 -maxyangle 0.5 -maxzangle 0.5 -num 3000 -w 20 -h 20 -vec /opencv_workspace/haarclass/image_0/positives.vec")
+        print("default config is:","\n opencv_createsamples -img /opencv_workspace/haarclass/images/pos/image_i.jpg\
+         -bg bg.txt -info /opencv_workspace/haarclass/image_i/info/info.lst -pngoutput /opencv_workspace/haarclass/image_i/info\
+          -maxxangle 0.5 -maxyangle 0.5 -maxzangle 0.5 -num 3000 -w 20 -h 20 -vec /opencv_workspace/haarclass/image_i/positives.vec")
 
         print(subprocess.run(["opencv_traincascade"]))
-        print("default config is:","\n opencv_traincascade -data /opencv_workspace/haarclass/image_0/data\
-         -vec /opencv_workspace/haarclass/image_0/positives.vec -bg bg.txt -numPos 3000 -numNeg 1500 -numStages 10 -w 20 -h 20","\n nohup: False")
+        print("default config is:","\n opencv_traincascade -data /opencv_workspace/haarclass/image_i/data\
+         -vec /opencv_workspace/haarclass/image_i/positives.vec -bg bg.txt -numPos 3000 -numNeg 1500 -numStages 10 -w 20 -h 20","\n nohup: False")
 
 
         conf_mode = input(str("default of customise"))
 
         # if user prefered to write own config
         if conf_mode == 'customise':
-            self.conf_opencv[0] = input(str('write the positive images path'))
-            self.conf_opencv[1] = input(str('maxxangle: '))
-            self.conf_opencv[2] = input(str('maxyangle: '))
-            self.conf_opencv[3] = input(str('maxzangle: '))
-            self.conf_opencv[4] = input(str('number of samples: '))
-            self.conf_opencv[5] = input(str('sample width: '))
-            self.conf_opencv[6] = input(str('sample height: '))
-            self.conf_opencv[7] = input(str('Nember of Stage: '))
-            self.conf_opencv[8] = input(str('nohup: True or False'))
+            # self.conf_opencv[0] = input(str('write the positive images path'))
+            self.conf_opencv[1] = str(input('maxxangle: '))
+            self.conf_opencv[2] = str(input('maxyangle: '))
+            self.conf_opencv[3] = str(input('maxzangle: '))
+            self.conf_opencv[4] = str(input('number of samples: '))
+            self.conf_opencv[5] = str(input('sample width: '))
+            self.conf_opencv[6] = str(input('sample height: '))
+            self.conf_opencv[7] = str(input('Nember of Stage: '))
+            self.conf_opencv[8] = str(input('nohup: True or False'))
             # creating the new config of the opencv_createsamples
             # self.conf_opencv = [pos_image_path,opencv_maxxangle,opencv_maxyangle,opencv_maxzangle,opencv_w,opencv_h]
 
         ## Running opencv_createsamples
         # first config
-        subprocess.run(["opencv_createsamples","-img",self.conf_opencv[0],"-bg","bg.txt","-info",self.conf_opencv[0]+"info.lst","-pngoutput",\
-        self.conf_opencv[0]+"info","-maxxangle",self.conf_opencv[1],"-maxyangle",self.conf_opencv[2],"-maxzangle",self.conf_opencv[3],\
+        subprocess.run(["opencv_createsamples","-img",self.conf_opencv[0],"-bg","bg.txt","-info","/opencv_workspace/haarclass/images_data/image_"+str(i)+"/info/info.lst","-pngoutput",\
+        "/opencv_workspace/haarclass/images_data/image_"+str(i)+"/info","-maxxangle",self.conf_opencv[1],"-maxyangle",self.conf_opencv[2],"-maxzangle",self.conf_opencv[3],\
         "-num",self.conf_opencv[4]])
 
         # second config for create vector file
-        subprocess.run(["-info",self.conf_opencv[0]+"info.lst","-num",self.conf_opencv[4],"-w",self.conf_opencv[5],"-h",self.conf_opencv[6],"-vec",self.conf_opencv[0]+"positives.vec"])
+        subprocess.run(["-info","/opencv_workspace/haarclass/images_data/image_"+str(i)+"/info/info.lst","-num",self.conf_opencv[4],"-w",self.conf_opencv[5],"-h",\
+        self.conf_opencv[6],"-vec","/opencv_workspace/haarclass/images_data/image_"+str(i)+"/positives.vec"])
 
         ## Running opencv_traincascade
         if nohup_mode == 'True':
-            subprocess.run(["nohup","opencv_traincascade","-data",self.conf_opencv[0]+"data","-vec",self.conf_opencv[0]+"positives.vec",\
-            "-bg","bg.txt","-numPos",str(int(self.conf_opencv[4])-int((int(self.conf_opencv[4])/10))),"-numNeg",str(int(self.conf_opencv[4])/2),\
-            "-numStages",self.conf_opencv[6],"-w",self.conf_opencv[5],"-h",self.conf_opencv[6]],"&")
+            subprocess.run(["nohup","opencv_traincascade","-data","/opencv_workspace/haarclass/images_data/image_"+str(i)+"/data","-vec",\
+            "/opencv_workspace/haarclass/images_data/image_"+str(i)+"/positives.vec","-bg","bg.txt","-numPos",str(int(self.conf_opencv[4])-int((int(self.conf_opencv[4])/10))),\
+            "-numNeg",str(int(self.conf_opencv[4])/2),"-numStages",self.conf_opencv[6],"-w",self.conf_opencv[5],"-h",self.conf_opencv[6],"&"])
         else:
-            subprocess.run(["opencv_traincascade","-data",self.conf_opencv[0]+"data","-vec",self.conf_opencv[0]+"positives.vec",\
-            "-bg","bg.txt","-numPos",str(int(self.conf_opencv[4])-int((int(self.conf_opencv[4])/10))),"-numNeg",str(int(self.conf_opencv[4])/2),\
-            "-numStages",self.conf_opencv[6],"-w",self.conf_opencv[5],"-h",self.conf_opencv[6]])
+            subprocess.run(["opencv_traincascade","-data","/opencv_workspace/haarclass/images_data/image_"+str(i)+"/data","-vec",\
+            "/opencv_workspace/haarclass/images_data/image_"+str(i)+"/positives.vec","-bg","bg.txt","-numPos",str(int(self.conf_opencv[4])-int((int(self.conf_opencv[4])/10))),\
+            "-numNeg",str(int(self.conf_opencv[4])/2),"-numStages",self.conf_opencv[6],"-w",self.conf_opencv[5],"-h",self.conf_opencv[6]])
 
 
     def store_XML(self,XML_path):
         '''
-        This Function will call opencv_traincascade
+        This Function will call create XML_path which is needed for XML_merge
         '''
-        print(subprocess.run(["opencv_traincascade"]))
-        # check the file names
-        xml_files = glob.glob(files +"/haarclass.xml")
+        # xml_files = glob.glob(files +"/haarclass.xml")
         subprocess.run(["rm","-rf","/opencv_workspace/haarclass/XML_file"])
         subprocess.run(["mkdir","/opencv_workspace/haarclass/XML_file"])
         subprocess.run(["cd","/opencv_workspace/haarclass/XML_file/"])
 
-        return XML_path
+        # copy all the XML files to XML_path
+        path = "/opencv_workspace/haarclass/images_data/"
+        for n, filename in enumerate(os.listdir(path)):
+            # "/opencv_workspace/haarclass/images_data/image_"+str(i)
+            subprocess.run(["cp","-r","/opencv_workspace/haarclass/images_data/image_"+str(n)+"/data/cascade.xml","/opencv_workspace/haarclass/XML_file/"])
+            subprocess.run(["mv","/opencv_workspace/haarclass/XML_file/cascade.xml","/opencv_workspace/haarclass/XML_file/cascade_"+str(n)+".xml"])
+
 
     # need to be edited
-    def XML_merge(self,files):
+    def XML_merge(self):
         '''
         This Functions is for combination of XML files
         '''
-        xml_files = glob.glob(files +"/*.xml")
+        XML_path = "/opencv_workspace/haarclass/XML_file/"
+        xml_files = glob.glob(XML_path +"/*.xml")
         xml_element_tree = None
         for xml_file in xml_files:
             data = ElementTree.parse(xml_file).getroot()
@@ -202,19 +209,33 @@ class opencv_python():
 if __name__ == "__main__":
     print ("--------------- Starting the opencv with python code ---------------")
 
-    img_type = str(input('Please specify the image kind (pos or neg): '))
-    path = str(input('\nPlease insert the path: '))
+    # img_type = str(input('Please specify the image kind (pos or neg): '))
+    # path = str(input('\nPlease insert the path: '))
+    path = "/opencv_workspace/haarclass/images/pos/"
 
+    # Using the class which has been defined
     opencv_python = opencv_python()
-    ''' Function For rename the images '''
-    opencv_python.rename_file(path)
+    for images_path in ["/opencv_workspace/haarclass/images/pos/","/opencv_workspace/haarclass/images/neg/"]:
+        ''' Function For rename the images '''
+        opencv_python.rename_file(images_path)
+        if images_path == "/opencv_workspace/haarclass/images/pos/" :
+            x = 100
+            y = 60
+            print("default resize for positive is x = {}, y = {}".foramt(x,y))
 
-    print("\nNow please insert the x and y for resize.")
-    x = int(input("x size: "))
-    y = int(input("y size: "))
+        if images_path == "/opencv_workspace/haarclass/images/neg/" :
+            x = 680
+            y = 480
+            print("default resize for negative is x = {}, y = {}".foramt(x,y))
 
-    ''' Function For read the images with opencv '''
-    opencv_python.store_raw_images(path,(x,y))
+        change_size = str(input("for resize default or customise? "))
+        if change_size == "customise"
+            print("\nNow please insert the x and y for resize.")
+            x = int(input("x size: "))
+            y = int(input("y size: "))
+
+        ''' Function For read the images with opencv '''
+        opencv_python.store_raw_images(images_path,(x,y))
 
     # opencv default config:
     conf_opencv = ["/opencv_workspace/haarclass/images/pos/","0.5","0.5","0.5","3000","20","20","10","False"]
@@ -224,12 +245,17 @@ if __name__ == "__main__":
         '''
         starting program for all images in the pos path
         '''
-        # running opencv modules for creating samples and training
+        ## running opencv modules for creating samples and training
+        # Make a folder for store each positive image data
+        subprocess.run(["mkdir","/opencv_workspace/haarclass/images_data/image_"+str(i)])
+        subprocess.run(["mkdir","/opencv_workspace/haarclass/images_data/image_"+str(i)+"/data"])
+        subprocess.run(["mkdir","/opencv_workspace/haarclass/images_data/image_"+str(i)+"/info"])
+        pos_image_path = str(path)+str(filename)
         '''Function to run opencv_createsamples and opencv_traincascade'''
-        opencv_python.call_opencv(conf_mode)
+        opencv_python.call_opencv(pos_image_path,i,conf_mode,conf_opencv)
 
     '''Function to copy all the XML files'''
-    opencv_python.store_XML(self)
+    opencv_python.store_XML()
 
     '''Function to merge all the XML files'''
     opencv_python.XML_merge(XML_path)
@@ -251,9 +277,9 @@ if __name__ == "__main__":
     # ''' Function For read the images with opencv '''
     # store_raw_images(path,(x,y))
 
-    '''Function to run opencv_createsamples'''
+    # '''Function to run opencv_createsamples'''
     # call_opencv_createsamples()
 
 
-    '''Function to run opencv_traincascade'''
+    # '''Function to run opencv_traincascade'''
     # call_opencv_traincascade()
