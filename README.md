@@ -30,8 +30,8 @@
 <p>These images are .... .</p>
 <h3>Input Images</h3>
 <ul>
-  <li>Neg_images</li>
-  <li>Pos_images</li>
+  <li>Neg_images: which has been taken from a Github repos ...</li>
+  <li>Pos_images: which are taken from user and store in: ...</li>
 </ul>
 
 <h2>Model</h2>
