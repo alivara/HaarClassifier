@@ -26,9 +26,7 @@
 <p>HaarClassifier software which is a teamwork project for <a href='https://dibris.unige.it/en'>'Dipartimento di Informatica, Bioingegneria, Robotica e Ingegneria dei Sistemi'</a> course from the prestigious master program of <a href='http://www.itim.unige.it/cs/strategos/'>'Engineering Technology for Strategy and Security - Strategos'</a> at the <a href='https://unige.it/en'>University of Genova</a> is designed to model this scenario.</p>
 
 <h2>Data</h2>
-<p>These images are .... .</p>
-<p>These images are .... .</p>
-<h3>Input Images</h3>
+<p>Data in this project are images which classify in two groups: </p>
 <ul>
   <li>Neg_images: which has been taken from a Github repos ...</li>
   <li>Pos_images: which are taken from user and store in: ...</li>
